@@ -7,6 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class DemoApplicationTests {
@@ -19,4 +23,16 @@ public class DemoApplicationTests {
 		hiController.getMessage();
 	}
 
+	/**
+	 * try-with-resources 写法
+	 * @throws IOException
+	 */
+	@Test
+	public void test() throws IOException {
+		try (BufferedReader br =
+					 new BufferedReader(new FileReader("/mywork/代码生成工具/generatorConfig.xml"))) {
+			String str= br.readLine();
+			System.out.println(str);
+		}
+	}
 }
