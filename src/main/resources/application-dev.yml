@@ -4,3 +4,24 @@ pagehand:
   isPage: B
 
 pageSize: 10
+
+spring:
+  db:
+    driver: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.146.128:3306/canal_test?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+    username: root
+    password: 222222
+    maxActive: 400
+    maxWait: 100
+    initialSize: 5
+    timeBetweenEvictionRunsMillis: 60000
+    maxOpenPreparedStatementPerConnectionSize: 100
+    minEvictableIdleTimeMillis: 300000
+    minIdle: 5
+    validationQuery: 'select version()'
+    testWhileIdle: false
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    connectionProperties: 'druid.stat.mergeSql:true;druid.stat.slowSqlMillis:5000'
+    filters: stat,slf4j
