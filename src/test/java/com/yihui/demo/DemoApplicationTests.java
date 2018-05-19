@@ -4,10 +4,12 @@ import com.yihui.demo.controller.HiController;
 import com.yihui.demo.dao.CanalTestDAO;
 import com.yihui.demo.model.CanalTest;
 import com.yihui.demo.model.CanalTestDO;
+import com.yihui.demo.service.TestService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,6 +27,9 @@ public class DemoApplicationTests {
 	@Autowired
 	private CanalTestDAO canalTestDAO;
 
+	@Autowired
+	private TestService testService;
+
 	/**
 	 *
 	 * 测试插入语句，成功后回滚，不进入数据库
@@ -33,8 +38,14 @@ public class DemoApplicationTests {
 	@Transactional
 	public void testCanlTestInsert(){
 		CanalTestDO canalTestDO=new CanalTestDO();
-		canalTestDO.setcName("测试11");
+		canalTestDO.setcName("测试111111");
 		canalTestDAO.insert(canalTestDO);
+	}
+
+	@Test
+	@Transactional
+	public void testTestServiceInsert(){
+		testService.InsertTest();
 	}
 
 	@Test

@@ -3,6 +3,7 @@ package com.yihui.demo.controller;
 import com.yihui.demo.config.PageHandConfig;
 import com.yihui.demo.dao.CanalTestDAO;
 import com.yihui.demo.model.Message;
+import com.yihui.demo.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,10 +16,13 @@ public class HiController {
     private Integer pageSize;
 
     @Autowired
-    PageHandConfig pageHandConfig;
+    private PageHandConfig pageHandConfig;
 
     @Autowired
     CanalTestDAO canalTestDAO;
+
+    @Autowired
+    private TestService testService;
 
     @RequestMapping("/hello")
     public String hello(){
@@ -34,6 +38,7 @@ public class HiController {
 
     @RequestMapping("daoTest")
     public Object daoTest(){
+        testService.InsertTest();
         return canalTestDAO.selectByPrimaryKey(2);
     }
 }

@@ -16,6 +16,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.core.io.support.ResourcePatternResolver;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 import javax.sql.DataSource;
 import java.sql.SQLException;
@@ -130,5 +131,11 @@ public class DBConfig {
     public SqlSessionTemplate userSqlSessionTemplate(@Qualifier("userSqlSessionFactory") SqlSessionFactory sqlSessionFactory) throws Exception {
         SqlSessionTemplate template = new SqlSessionTemplate(sqlSessionFactory); // 使用上面配置的Factory
         return template;
+    }
+
+    @Primary
+    @Bean(name = "transactionManager")
+    public DataSourceTransactionManager primaryTransactionManager(@Qualifier("userDataSource") DataSource primaryDataSource) {
+        return new DataSourceTransactionManager(primaryDataSource);
     }
 }
