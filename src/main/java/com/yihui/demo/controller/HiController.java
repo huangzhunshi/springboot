@@ -32,7 +32,7 @@ public class HiController {
 
     @RequestMapping("/getmessage")
     public Message<String> getMessage(){
-        return Message.<String>builder().code(100).message("成功").data("哈哈").build();
+        return Message.<String>builder().code(100).message("成功").data("哈哈!!!2222").build();
     }
 
 
