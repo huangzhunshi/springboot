@@ -25,3 +25,19 @@ spring:
     poolPreparedStatements: true
     connectionProperties: 'druid.stat.mergeSql:true;druid.stat.slowSqlMillis:5000'
     filters: stat,slf4j
+
+elaticjob:
+  zookeeper:
+    namespace: my-project
+    server-lists: 192.168.146.128:2181
+
+
+
+regCenter:
+  serverList: 192.168.146.128:2181
+  namespace: my-project
+
+dataflowJob:
+  cron: 0/5 * * * * ?
+  shardingTotalCount: 3
+  shardingItemParameters: 0=Beijing,1=Shanghai,2=Guangzhou
