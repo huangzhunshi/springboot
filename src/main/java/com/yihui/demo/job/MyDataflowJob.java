@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-@ElasticSimpleJob(cron="* * * * * ?",jobName="test001",description = "测试DataflowJob" ,shardingTotalCount=2,jobParameter="测试参数",shardingItemParameters="0=A,1=B")
-@Component
+//@ElasticSimpleJob(cron="* * * * * ?",jobName="test001",description = "测试DataflowJob" ,shardingTotalCount=2,jobParameter="测试参数",shardingItemParameters="0=A,1=B")
+//@Component
 public class MyDataflowJob implements DataflowJob<String> {
     @Override
     public List<String> fetchData(ShardingContext shardingContext) {

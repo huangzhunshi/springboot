@@ -5,8 +5,8 @@ import com.dangdang.ddframe.job.api.simple.SimpleJob;
 import com.dangdang.elasticjob.lite.annotation.ElasticSimpleJob;
 import org.springframework.stereotype.Component;
 
-@ElasticSimpleJob(cron="* * * * * ?",jobName="test123",description = "测试job" ,shardingTotalCount=2,jobParameter="测试参数",shardingItemParameters="0=A,1=B")
-@Component
+//@ElasticSimpleJob(cron="* * * * * ?",jobName="test123",description = "测试job" ,shardingTotalCount=2,jobParameter="测试参数",shardingItemParameters="0=A,1=B")
+//@Component
 public class MyJob implements SimpleJob {
     @Override
     public void execute(ShardingContext content) {
